@@ -1,0 +1,453 @@
+﻿<Page
+    x:Class="GrafX_Quests.Graus_dos_Vertices"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GrafX_Quests"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="EstiloTextual.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Name="Titulo_Graus_dos_Vertices"
+                    Grid.Row="0"
+                    Margin="30,30,30,0">
+            <TextBlock Text="Graus dos Vétices"
+                       Style="{StaticResource Titulo}"/>
+            <TextBlock Style="{StaticResource Subtitulo}"
+                       Margin="20,15,0,0">
+                O grafo é uma forma simplificada de apresentar relações entre 
+                objetos de um determinado conjunto que usa vértices e 
+                arestas para descrever conexões. 
+                Chamamos de "Grau do Vértice" a quantidade de arestas que se
+                ligam ao ponto (vértice).
+            </TextBlock>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="30,20,30,0"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Hidden">
+            <RelativePanel RenderTransformOrigin="0.5,0.5">
+                <RelativePanel.RenderTransform>
+                    <CompositeTransform ScaleX="0.85" ScaleY="0.85"/>
+                </RelativePanel.RenderTransform>
+
+                <StackPanel Name="Grafo_Interativo" Orientation="Horizontal" 
+                            RelativePanel.AlignHorizontalCenterWithPanel="True">
+
+                    <Canvas Margin="50,180,200,180">
+                        <Line Name="Linha_AB" 
+                              X1="0" Y1="-125" 
+                              X2="150" Y2="0"
+                              Stroke="Black"
+                              StrokeThickness="10"
+                              Tapped="Linha_AB_Tapped"/>
+                        <Line Name="Linha_BC" 
+                              X1="150" Y1="0"
+                              X2="0" Y2="125"
+                              Stroke="Black"
+                              StrokeThickness="10"
+                              Tapped="Linha_BC_Tapped"/>
+                        <Line Name="Linha_BD"
+                              X1="150" Y1="0" 
+                              X2="0" Y2="0"
+                              Stroke="Black"
+                              StrokeThickness="10"
+                              Tapped="Linha_BD_Tapped"/>
+                        <Polyline Name="Linha_CD1"                                   
+                                  Points="0,0 -30,25 -35,35 -25,70 0,125"
+                                  Stroke="Black"
+                                  StrokeThickness="10"
+                                  Tapped="Linha_CD1_Tapped"/>
+                        <Polyline Name="Linha_CD2" 
+                                  Points="0,0 30,25 35,35 25,70 0,125"
+                                  Stroke="Black"
+                                  StrokeThickness="10"
+                                  Tapped="Linha_CD2_Tapped"/>
+                        <Polyline Name="Linha_AD1" 
+                                  Points="0,0 -30,-25 -35,-35 -25,-70 0,-125"
+                                  Stroke="Black"
+                                  StrokeThickness="10"
+                                  Tapped="Linha_AD1_Tapped"/>
+                        <Polyline Name="Linha_AD2" 
+                                  Points="0,0 30,-25 35,-35 25,-70 0,-125"                                  
+                                  Stroke="Black"
+                                  StrokeThickness="10"
+                                  Tapped="Linha_AD2_Tapped"/>
+                        <Ellipse Height="20" Width="20"
+                                 Fill="Blue"
+                                 Margin="-10,-10,0,0"/>
+                        <Ellipse Height="20" Width="20"
+                                 Fill="Blue"
+                                 Margin="-10,-133,0,0"/>
+                        <Ellipse Height="20" Width="20"
+                                 Fill="Blue"
+                                 Margin="-10,115,0,0"/>
+                        <Ellipse Height="20" Width="20"
+                                 Fill="Blue"
+                                 Margin="135,-10,0,0"/>
+                        <TextBlock Text="A"
+                                   FontFamily="Arial"
+                                   FontSize="30"
+                                   Foreground="Blue"
+                                   Margin="-10,-165,0,0"/>
+                        <TextBlock Text="B"
+                                   FontFamily="Arial"
+                                   FontSize="30"
+                                   Foreground="Blue"
+                                   Margin="160,-15,0,0"/>
+                        <TextBlock Text="C"
+                                   FontFamily="Arial"
+                                   FontSize="30"
+                                   Foreground="Blue"
+                                   Margin="-10,135,0,0"/>
+                        <TextBlock Text="D"
+                                   FontFamily="Arial"
+                                   FontSize="30"
+                                   Foreground="Blue"
+                                   Margin="-47.5,-17,0,0"/>
+                    </Canvas>
+
+                    <Grid Margin="50,0,0,0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RelativePanel Grid.Row="0"
+                                       Grid.Column="0">
+                            <TextBlock Text="Vértice"
+                                       Style="{StaticResource Subtitulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="0"
+                                       Grid.Column="1">
+                            <TextBlock Text="Grau"
+                                       Style="{StaticResource Subtitulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="1"
+                                       Grid.Column="0">
+                            <TextBlock Text="A"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="1"
+                                       Grid.Column="1">
+                            <TextBlock Name="Grau_de_A" 
+                                       Text="3"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="2"
+                                       Grid.Column="0">
+                            <TextBlock Text="B"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="2"
+                                       Grid.Column="1">
+                            <TextBlock Name="Grau_de_B" 
+                                       Text="3"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="3"
+                                       Grid.Column="0">
+                            <TextBlock Text="C"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="3"
+                                       Grid.Column="2">
+                            <TextBlock Name="Grau_de_C" 
+                                       Text="3"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="4"
+                                       Grid.Column="0">
+                            <TextBlock Text="D"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                        <RelativePanel Grid.Row="4"
+                                       Grid.Column="2">
+                            <TextBlock Name="Grau_de_D" 
+                                       Text="3"
+                                       Foreground="Blue"
+                                       Style="{StaticResource Titulo}"
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"/>
+                            <Line X1="0" Y1="0"
+                                  X2="100" Y2="0"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"/>
+                            <Line X1="0" Y1="0"
+                                  X2="0" Y2="65"
+                                  Stroke="Black"
+                                  StrokeThickness="5"
+                                  RelativePanel.AlignBottomWithPanel="True"
+                                  RelativePanel.AlignRightWithPanel="True"/>
+                        </RelativePanel>
+                    </Grid>
+                </StackPanel>
+
+                <TextBlock Text="(Grafo Interativo)"
+                           Style="{StaticResource Subtitulo}"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           RelativePanel.Below="Grafo_Interativo"
+                           Margin="15"/>
+
+            </RelativePanel>
+        </ScrollViewer>
+
+        <RelativePanel Grid.Row="2"
+                       Margin="30,20,30,30">
+            <Button Name="Anterior"
+                    Content="Anterior"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    Click="Anterior_Click"/>
+            <Button Name="Restaurar"
+                    Content="Restaurar"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    Click="Restaurar_Click"/>
+            <Button Name="Proximo"
+                    Content="Próximo"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Click="Proximo_Click"/>
+        </RelativePanel>
+
+    </Grid>
+</Page>

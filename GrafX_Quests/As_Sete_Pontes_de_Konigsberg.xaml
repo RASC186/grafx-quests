@@ -1,0 +1,86 @@
+﻿<Page
+    x:Class="GrafX_Quests.As_Sete_Pontes_de_Konigsberg"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GrafX_Quests"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="EstiloTextual.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Name="Titulo_As_Sete_Pontes_de_Konigsberg"
+                    Grid.Row="0"
+                    Margin="30,30,30,0">
+            <TextBlock Text="As Sete Pontes de Königsberg"
+                       Style="{StaticResource Titulo}"/>
+
+            <TextBlock Style="{StaticResource Subtitulo}"
+                       Margin="20,15,0,0">
+                O conceito de grafo foi introduzido por Leonard Euler para a resolução do famoso
+                problema das sete pontes de Königsberg em 1736. Nesse problema era questionado
+                se era possível passar por todas as pontes apenas uma vez por cada. 
+            </TextBlock>
+            <TextBlock Style="{StaticResource Subtitulo}"
+                       Margin="20,10,0,0"
+                       HorizontalAlignment="Center">
+                O que você acha? É possível passar por todas as pontes sem repeti-las?
+            </TextBlock>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Hidden"
+                      VerticalScrollBarVisibility="Auto">
+            <RelativePanel Margin="30,20,30,0">            
+                <Image Name="As_Sete_Pontes_de_Konigsberg_Imagem" 
+                       Source="Assets/As_Sete_Pontes_de_Konigsberg_Imagem.jpg"
+                       MaxHeight="300"
+                       Stretch="Uniform"
+                       Margin="0,0,0,0"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <StackPanel Orientation="Horizontal"
+                            RelativePanel.Below="As_Sete_Pontes_de_Konigsberg_Imagem"
+                            RelativePanel.AlignHorizontalCenterWith="As_Sete_Pontes_de_Konigsberg_Imagem">
+                    <Button Name="Sim_Button"
+                            Content="Sim"
+                            Width="75"
+                            Margin="0,15,20,0"
+                            Click="Sim_Button_Click"/>
+                    <Button Name="Nao_Button"
+                            Content="Não"
+                            Width="75"
+                            Margin="20,15,0,0"
+                            Click="Nao_Button_Click"/>
+            </StackPanel>
+        </RelativePanel>
+        </ScrollViewer>
+        
+        <RelativePanel Grid.Row="2"
+                       Margin="30,20,30,30">
+            <Button Name="Anterior"
+                    Content="Anterior"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    Click="Anterior_Click"/>
+            <Button Name="Proximo"
+                    Content="Próximo"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Click="Proximo_Click"/>
+        </RelativePanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,225 @@
+﻿<Page
+    x:Class="GrafX_Quests.Desafio_2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GrafX_Quests"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="EstiloTextual.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Name="Titulo_O_Teorema_de_Euler_I"
+                    Grid.Row="0"
+                    Margin="30,30,30,0">
+            <TextBlock Text="Desafio 2#"
+                       Style="{StaticResource Titulo}"/>
+            <TextBlock Style="{StaticResource Subtitulo}"
+                       Margin="20,15,0,0">
+                Digite o grau de cada um dos vértices e responda se o grafo é euleriano.
+            </TextBlock>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Hidden">
+            
+            <RelativePanel Margin="30,-30,30,10" 
+                           RenderTransformOrigin="0.5,0.5">
+                
+                <RelativePanel.RenderTransform>
+                    <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                </RelativePanel.RenderTransform>
+                
+                <Image Name="Grafo_Desafio_2" 
+                       Source="Assets/Grafo_Desafio_2.png"
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="200,0,0,0"/>
+                
+                <TextBlock Name="Vertice_Tabela_Titulo" 
+                           Text="Vértice"
+                           FontSize="30"
+                           FontFamily="Calibri Light"
+                           FontWeight="Bold"/>
+                <TextBlock Name="Vertice_0" 
+                           Text="0"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_Tabela_Titulo"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_1" 
+                           Text="1"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_0"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_2" 
+                           Text="2"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_1"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_3" 
+                           Text="3"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_2"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_4" 
+                           Text="4"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_3"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_5" 
+                           Text="5"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_4"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_6" 
+                           Text="6"
+                           Style="{StaticResource Titulo}"                           
+                           RelativePanel.Below="Vertice_5"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_7" 
+                           Text="7"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_6"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_8" 
+                           Text="8"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_7"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_9" 
+                           Text="9"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_8"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+                <TextBlock Name="Vertice_10" 
+                           Text="10"
+                           Style="{StaticResource Titulo}"
+                           RelativePanel.Below="Vertice_9"
+                           RelativePanel.AlignHorizontalCenterWith="Vertice_Tabela_Titulo"/>
+
+                <TextBlock Name="Grau_Tabela_Titulo"
+                           Text="Grau"
+                           FontSize="30"
+                           FontFamily="Calibri Light"
+                           FontWeight="Bold"
+                           Margin="30,0,0,0"                       
+                           RelativePanel.AlignVerticalCenterWith="Vertice_Tabela_Titulo"
+                           RelativePanel.RightOf="Vertice_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_0"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_0"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_1"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_1"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_2"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_2"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_3"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_3"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_4"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_4"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_5"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_5"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_6"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_6"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_7"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_7"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_8"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_8"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_9"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_9"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                <TextBox Name="Grau_de_10"
+                         Margin="30,0,0,0"
+                         RelativePanel.AlignVerticalCenterWith="Vertice_10"
+                         RelativePanel.AlignHorizontalCenterWith="Grau_Tabela_Titulo"/>
+                
+                <Button Name="Restaurar"
+                        Content="Restaurar"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignTopWithPanel="True"
+                        Click="Restaurar_Click"/>
+
+                <TextBlock Name="Pergunta_TextBlock"
+                           Text="Este grafo é euleriano?"
+                           Style="{StaticResource Subtitulo}"
+                            Margin="0,30,0,0"
+                           RelativePanel.Below="Grafo_Desafio_2"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+                <StackPanel Name="Sim_ou_Nao_StackPanel"
+                            Orientation="Horizontal"
+                            Margin="0,10,0,0"
+                            RelativePanel.Below="Pergunta_TextBlock"
+                            RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Button Name="Sim"
+                            Content="Sim"
+                            Width="75"
+                            Margin="0,0,15,0"
+                            Click="Sim_Click"/>
+                    <Button Name="Nao"
+                            Content="Não"
+                            Width="75"
+                            Margin="15,0,0,0"
+                            Click="Nao_Click"/> 
+                </StackPanel>
+
+                <Button Name="Avancar_Button"
+                        Content="Avançar"
+                        Width="75"
+                        Margin="30,15,0,0"
+                        RelativePanel.AlignHorizontalCenterWith="Grau_de_10"
+                        RelativePanel.Below="Grau_de_10"
+                        Click="Avancar_Button_Click"/>
+
+            </RelativePanel>        
+        </ScrollViewer>
+
+        <RelativePanel Grid.Row="2"
+                       Margin="30,20,30,30">
+            <Button Name="Anterior"
+                    Content="Anterior"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    Click="Anterior_Click"/>
+            <Button Name="Proximo"
+                    Content="Próximo"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Click="Proximo_Click"/>
+        </RelativePanel>
+
+    </Grid>
+</Page>

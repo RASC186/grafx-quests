@@ -1,0 +1,1 @@
+C:\Users\Computador\Desktop\UWP Applications\GrafX_Quests\GrafX_Quests\GrafX_Quests\GrafX_Quests.csproj;x64

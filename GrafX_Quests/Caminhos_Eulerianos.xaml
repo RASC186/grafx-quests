@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="GrafX_Quests.Caminhos_Eulerianos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GrafX_Quests"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="EstiloTextual.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Name="Titulo_Caminhos_Eulerianos"
+                    Grid.Row="0"
+                    Margin="30,30,30,0">
+            <TextBlock Text="Caminhos Eulerianos"
+                       Style="{StaticResource Titulo}"/>
+            <TextBlock Style="{StaticResource Subtitulo}"
+                       Margin="20,15,0,0">
+                Um caminho euleriano é um caminho em um grafo que visita todas as arestas
+                sem repetir uma se quer.
+            </TextBlock>
+        </StackPanel>
+
+        <RelativePanel Grid.Row="1"
+                    Margin="30,20,30,0">
+            <Image Name="Grafo_1" 
+                   Source="Assets/Grafo_1.png"
+                   MaxHeight="350"
+                   Stretch="Uniform"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+            <TextBlock Text="Caminho Euleriano"
+                       Style="{StaticResource Subtitulo}"
+                       RelativePanel.Below="Grafo_1"
+                       RelativePanel.AlignHorizontalCenterWith="Grafo_1"
+                       Margin="0,10,0,0"/>
+                       
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="2"
+                       Margin="30,20,30,30">
+            <Button Name="Anterior"
+                    Content="Anterior"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    Click="Anterior_Click"/>
+            <Button Name="Proximo"
+                    Content="Próximo"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Click="Proximo_Click"/>
+        </RelativePanel>
+        
+    </Grid>
+</Page>

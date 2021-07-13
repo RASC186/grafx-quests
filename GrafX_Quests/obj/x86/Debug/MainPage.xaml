@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="GrafX_Quests.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GrafX_Quests"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <RelativePanel Grid.Row="0"
+                       Margin="25,25,30,0">
+            <TextBlock x:ConnectionId='3' Name="Titulo_TextBlock" 
+                       Text="- Introdução às Definições da Teoria dos Grafos"
+                       FontSize="36"
+                       FontWeight="Normal"
+                       TextWrapping="Wrap"/>
+            <TextBlock x:ConnectionId='4' Name="Questao_TextBlock"
+                       Text="1) Crie um grafo qualquer."
+                       FontSize="25"
+                       FontWeight="Light"
+                       TextWrapping="Wrap"
+                       RelativePanel.Below="Titulo_TextBlock"
+                       Margin="25,20,0,0"/>
+        </RelativePanel>
+
+        <ScrollViewer x:ConnectionId='1' Name="Resposta_ScrollViewer"
+                      Grid.Row="1"
+                      Margin="25,25,30,0">
+            <Canvas>
+                <RelativePanel>
+                    <Rectangle x:ConnectionId='2' Name="Plano_de_Fundo_Resposta"
+                               Width="300"
+                               Height="Auto"
+                               Stroke="Black"/>
+                </RelativePanel>                                   
+            </Canvas>
+        </ScrollViewer>
+            
+    </Grid>
+</Page>
+
